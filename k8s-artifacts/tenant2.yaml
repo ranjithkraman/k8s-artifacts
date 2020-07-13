@@ -1,0 +1,26 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: tenant2-app
+  namespace: tenant2
+  labels:
+    app: tenant2
+spec:
+  containers:
+    - name: tenant2-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=tenant2"
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: tenant2-service
+  namespace: tenant2
+spec:
+  selector:
+    app: tenant2
+  ports:
+    - port: 5678 # Default port for image
