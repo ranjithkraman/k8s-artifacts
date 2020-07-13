@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tenant1-ingress
+  namespace: tenant1
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: tenant1.aws-dev-shop.com
+    http:
+      paths:
+      - backend:
+          serviceName: tenant1-service
+          servicePort: 5678
+        path: /
