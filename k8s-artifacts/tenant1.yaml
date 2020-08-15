@@ -1,3 +1,10 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: tenant1
+
+---
+
 kind: Pod
 apiVersion: v1
 metadata:
